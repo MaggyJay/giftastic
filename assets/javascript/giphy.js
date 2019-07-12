@@ -1,7 +1,7 @@
 var personList = [];
 $(document).ready(function () {
 
-    $('#submit-button').on('click', function (event) {
+    $('#submit-button').on('click', function mainStuff (event) {
         event.preventDefault();
         //function displayGifs() {
         //we have to use this so it can apply this to whatever person button exists
@@ -21,8 +21,8 @@ $(document).ready(function () {
         })
 
             .then(function (response) {
-                console.log(queryURL);
-                console.log('Youre searching by' + userInput);
+                //console.log(queryURL);
+                //console.log('Youre searching by' + userInput);
 
                 console.log(response);
                 var results = response.data;
@@ -42,21 +42,31 @@ $(document).ready(function () {
                     $('#fav-people-container').prepend(gifDiv);
                 }
 
-                console.log('this does as expected!');
-                console.log(response);
+                //console.log('this does as expected!');
+                //console.log(response);
 
                // var userInput = $('#person').val().trim();
                 personList.push(userInput);
 
 
-                console.log(personList);
+                //console.log(personList);
+                
                 renderButtons();   //console.log('Were logging the person' + person);
             })
+
+            
 
 
         // console.log(response);
     })
 
+
+    $('.person').on('click', function () {
+
+        console.log('Do you at least work?');
+        mainStuff();
+
+    })
     // $('#submit-button').on('click', function (response) {
     //     response.preventDefault();
     //     console.log('this does as expected!');
@@ -78,13 +88,14 @@ $(document).ready(function () {
 
         for (var y = 0; y < personList.length; y++) {
             var p = $('<button>');
-            p.addClass("person");
-            p.attr("data-person", personList[y])
+            //p.addClass("person");
+            p.addClass("person", personList[y])
             p.text(personList[y]);
             $('#button-placer').append(p);
         }
 
 
     }
+    
 
 });
