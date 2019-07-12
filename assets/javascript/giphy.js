@@ -41,9 +41,20 @@ $(document).ready(function () {
 
                     $('#fav-people-container').prepend(gifDiv);
                 }
-                //console.log('Were logging the person' + person);
+
+                console.log('this does as expected!');
+                console.log(response);
+
+               // var userInput = $('#person').val().trim();
+                personList.push(userInput);
+
+
+                console.log(personList);
+                renderButtons();   //console.log('Were logging the person' + person);
             })
-           // console.log(response);
+
+
+        // console.log(response);
     })
 
     // $('#submit-button').on('click', function (response) {
@@ -56,24 +67,24 @@ $(document).ready(function () {
 
 
     //     console.log(personList);
-    //     renderButtons();
+    //     //renderButtons();
 
 
     // })
 
-    // function renderButtons() {
+    function renderButtons() {
 
-    //     $('fav-people-container').empty();
+        $('#button-placer').empty();
 
-    //     for (var y = 0; y < personList.length; y++) {
-    //         var p = $('<button>');
-    //         p.addClass("person");
-    //         p.attr("data-person", personList[y])
-    //         p.text(personList[y]);
-    //         $('#fav-people-container').append(p);
-    //     }
+        for (var y = 0; y < personList.length; y++) {
+            var p = $('<button>');
+            p.addClass("person");
+            p.attr("data-person", personList[y])
+            p.text(personList[y]);
+            $('#button-placer').append(p);
+        }
 
 
-    // }
+    }
 
 });
