@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-          
+
             var results = response.data;
 
             for (var i = 0; i < results.length; i++) {
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
                 var personImage = $('<img>').addClass('gifImage');
                 personImage.attr('src', results[i].images.fixed_height_still.url);
-                
+
 
                 //personImage.attr('src', results[i].images.fixed_height.url);
                 gifDiv.prepend(a);
@@ -38,11 +38,11 @@ $(document).ready(function () {
                 //     gifDiv.prepend(personImage);
 
                 //     }
-            
+
                 // })
             }
 
-          
+
         })
     }
 
@@ -55,12 +55,12 @@ $(document).ready(function () {
         callAPI(userInput);
 
         renderButtons();   //console.log('Were logging the person' + person);
-        document.getElementById('person').value='';
+        document.getElementById('person').value = '';
     })
 
     //previously i had this as click event on the person class but this was not working due it loading later in the webpage. what document does is say that anywhere on this html document anything with the person class is clicked to perform this action. 
     $(document).on('click', '.person', function () {
-    
+
         callAPI(this.textContent);
 
     })
