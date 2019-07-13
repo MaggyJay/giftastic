@@ -5,23 +5,54 @@ body, html {
     font-family: 'Permanent Marker', cursive;
 
 }
-
-#people-form {
-    float: right;
-    color: pink;
+h1 {
+    color: white;
+}
+#header-container {
+    text-align: center;
 }
 
+#people-form {
+    color: pink;
+}
+#submit-button:hover{
+    background-color: #784b52;
+}
+#submit-button:active {
+    background-color: #784b52;
+    box-shadow: 1px 5px #666;
+    transform: translateY(4px);
+}
 #submit-button {
     padding: 10px;
     margin: 10px;
     background-color: pink;
     font-family: 'Permanent Marker', cursive;
+    border-radius: 10%;
+    box-shadow: 1px 5px #888888
+}
+#fav-people-container {
+    text-align: center;
 }
 
+#button-placer {
+    text-align: center;
+}
+
+button:hover{
+    background-color: #784b52;
+}
+button:active{
+    background-color: #784b52;
+    box-shadow: 1px 5px #666;
+    transform: translateY(4px);
+}
 button{
     padding: 10px;
     margin: 10px;
     background-color: pink;
     font-family: 'Permanent Marker', cursive;
+    border-radius: 10%;
+    box-shadow: 1px 5px #888888
 
 }

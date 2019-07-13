@@ -41,6 +41,7 @@ $(document).ready(function () {
         callAPI(userInput);
 
         renderButtons();   //console.log('Were logging the person' + person);
+        document.getElementById('person').value='';
     })
 
     //previously i had this as click event on the person class but this was not working due it loading later in the webpage. what document does is say that anywhere on this html document anything with the person class is clicked to perform this action. 
