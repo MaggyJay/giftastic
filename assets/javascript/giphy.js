@@ -20,6 +20,9 @@ $(document).ready(function () {
 
                 var personImage = $('<img>').addClass('gifImage');
                 personImage.attr('src', results[i].images.fixed_height_still.url);
+                personImage.attr('data-still', results[i].images.fixed_height_still.url);
+                personImage.attr('data-animate', results[i].images.fixed_height.url);
+                personImage.attr('data-state', 'still');
 
 
                 //personImage.attr('src', results[i].images.fixed_height.url);
@@ -28,23 +31,28 @@ $(document).ready(function () {
 
                 $('#fav-people-container').prepend(gifDiv);
 
-                //I can't figure out how to unfreeze the images. GIPHY API already has properties for still and animated gifs. The issue is calling it back on click of the image. I put the click event in this function because it kept telling it me was undefined but that didn't fix it. 
-
-                // $(document).on('click', '.gifImage', function () {
-                //     console.log('are you hitting?' + response);
-                //     for (var x = 0; x < results.length; x++) {
-                //     var results = response.data;
-                //     personImage.attr('src', results[x].images.fixed_height.url);
-                //     gifDiv.prepend(personImage);
-
-                //     }
-
-                // })
             }
 
 
         })
     }
+
+    $(document).on('click', '.gifImage', function () {
+
+        var state = $(this).attr('data-state')
+        console.log(state);
+
+        if (state === 'still') {
+            $(this).attr('src', $(this).attr('data-animate'));
+            $(this).attr('data-state', 'animate');
+
+        }
+        else {
+            $(this).attr('src', $(this).attr('data-still'));
+            $(this).attr('data-state', 'still');
+        }
+
+    });
 
     $('#submit-button').on('click', function (event) {
         event.preventDefault();
@@ -58,7 +66,6 @@ $(document).ready(function () {
         document.getElementById('person').value = '';
     })
 
-    //previously i had this as click event on the person class but this was not working due it loading later in the webpage. what document does is say that anywhere on this html document anything with the person class is clicked to perform this action. 
     $(document).on('click', '.person', function () {
 
         callAPI(this.textContent);
