@@ -74,6 +74,8 @@ $(document).ready(function () {
 
 
     function renderButtons() {
+        
+
 
         $('#button-placer').empty();
 
