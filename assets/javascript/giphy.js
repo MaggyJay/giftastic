@@ -1,9 +1,10 @@
 var personList = [];
+var offset=0;
 $(document).ready(function () {
 
     //passing customized value in as the functions argument(parameter)
     function callAPI(userInput) {
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userInput + "&api_key=PYBhZj8kiUoPbeAbyY26QynXWxzncbRX&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userInput + "&api_key=PYBhZj8kiUoPbeAbyY26QynXWxzncbRX&limit=10&offset=" + offset;
 
         $.ajax({
             url: queryURL,
@@ -32,6 +33,8 @@ $(document).ready(function () {
                 $('#fav-people-container').prepend(gifDiv);
 
             }
+
+            offset+=10;
 
 
         })
